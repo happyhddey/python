@@ -85,7 +85,7 @@ right(90)
 fd(70)
 write("5", True, align="center", font=8)
 fd(70)
-write("4", True, align="center", font=8)
+write("6", True, align="center", font=8)
 fd(70)
 write("-", True, align="center", font=8)
 left(90)
@@ -138,9 +138,40 @@ def play(message):
         elif x <=75 and x >=0 and y <= -150 and y >= -200:
             write(". ", True, align="left", font=8)
             play(message+".")
-        elif x <= 150 and x >= 0 and y <= -150 and y >= -200:
-            write(". ", True, align="left", font=8)
-            play(message + ".")
+        elif x <= 150 and x >= 75 and y <= -150 and y >= -200:
+            result = ""
+            try:
+                result = str(eval(message))
+            except:
+                result = "Error"
+            write(result, True, align="left", font=8)
+            if result == "Error":
+                result = ""
+            play(result)
+        elif x <= -75 and x >= -150 and y <= -100 and y >= -150:
+            write("1 ", True, align="left", font=8)
+            play(message + "1")
+        elif x <= 0 and x >= -75 and y <= -100 and y >= -150:
+            write("2 ", True, align="left", font=8)
+            play(message + "2")
+        elif x <= 75 and x >= 0 and y <= -100 and y >= -150:
+            write("3 ", True, align="left", font=8)
+            play(message + "3")
+        elif x <= 150 and x >= 75 and y <= -100 and y >= -150:
+            write("+ ", True, align="left", font=8)
+            play(message + "+")
+        elif x <= -75 and x >= -150 and y <= -50 and y >= -100:
+            write("4 ", True, align="left", font=8)
+            play(message + "4")
+        elif x <= 0 and x >= -75 and y <= -50 and y >= -100:
+            write("5 ", True, align="left", font=8)
+            play(message + "5")
+        elif x <= 75 and x >= 0 and y <= -50 and y >= -100:
+            write("6 ", True, align="left", font=8)
+            play(message + "6")
+        elif x <= 150 and x >= 75 and y <= -50 and y >= -100:
+            write("- ", True, align="left", font=8)
+            play(message + "-")
         else:
             play(message)
 
