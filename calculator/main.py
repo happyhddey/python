@@ -138,7 +138,7 @@ def play(message):
         elif x <=75 and x >=0 and y <= -150 and y >= -200:
             write(". ", True, align="left", font=8)
             play(message+".")
-        elif x <= 75 and x >= 0 and y <= -150 and y >= -200:
+        elif x <= 150 and x >= 0 and y <= -150 and y >= -200:
             write(". ", True, align="left", font=8)
             play(message + ".")
         else:
