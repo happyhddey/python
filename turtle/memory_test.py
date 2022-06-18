@@ -1,10 +1,12 @@
 import time
+import random
+
 from turtle import *
 
 
 def draw_circle(x, y, r):
     penup()
-    goto(x, y-r)
+    goto(x, y - r)
     seth(0)
     pendown()
     speed("fastest")
@@ -14,7 +16,7 @@ def draw_circle(x, y, r):
 
 def mark_circle(x, y, r):
     penup()
-    goto(x, y-r)
+    goto(x, y - r)
     seth(0)
     pendown()
     speed("fast")
@@ -42,49 +44,49 @@ begin_fill()
 draw_circle(-200, 0, 110)
 end_fill()
 
+answer = []
 
-def play(message):
-    def check(my_ans):
+
+def play():
+    a = random.randint(1, 4)
+    answer.append(a)
+    # answer를 보여주기
+    print(answer)
+
+    my_ans = []
+
+    def check():
         def call(x, y):
-            import random
-            a = random.randint(1, 4)
             print(x, y)
-            print(message)
-            play(message + str(a))
-            if a == 1:
-                color("white", "lightgreen")
-                begin_fill()
-                mark_circle(0, 200, 110)
-                end_fill()
-                time.sleep(0.75)
-                undo()
-            elif a == 2:
-                color("white", "lightyellow")
-                begin_fill()
-                mark_circle(-200, 0, 110)
-                end_fill()
-                time.sleep(0.75)
-                undo()
-            elif a == 3:
-                color("white", "lightblue")
-                begin_fill()
-                mark_circle(0, -200, 110)
-                end_fill()
-                time.sleep(0.75)
-                undo()
+
+            if (0 - x) ** 2 + (200 - y) ** 2 <= 110 ** 2:
+                my_ans.append(1)
+            elif (-200 - x) ** 2 + (0 - y) ** 2 <= 110 ** 2:
+                my_ans.append(2)
+            elif (0 - x) ** 2 + (-200 - y) ** 2 <= 110 ** 2:
+                my_ans.append(3)
+            elif (200 - x) ** 2 + (0 - y) ** 2 <= 110 ** 2:
+                my_ans.append(4)
+
+            b = len(my_ans)-1
+            if len(answer) != len(my_ans):
+                if answer[b] == my_ans[b]:
+                    check()
+                else:
+                    reset()
+                    penup()
+                    write("틀렸습니다", align="left", font=('Arial', 100, 'normal'))
+            elif answer[b] == my_ans[b]:
+                play()
             else:
-                color("white", "lightcoral")
-                begin_fill()
-                mark_circle(200, 0, 110)
-                end_fill()
-                time.sleep(0.75)
-                undo()
-            if (0-x)**2 + (200-y)**2 <= 110**2:
-                check(my_ans + "1")
+                onscreenclick(None)
+                reset()
+                penup()
+                write("틀렸습니다", True, align="center", font=('Arial', 100, 'normal'))
 
         onscreenclick(call)
-    check("")
+    check()
 
 
-play("")
+play()
 done()
