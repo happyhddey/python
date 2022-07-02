@@ -81,6 +81,7 @@ def make():
     pendown()
     fd(600)
 
+print("hello")
 
 def nanido_easy():
     make()
