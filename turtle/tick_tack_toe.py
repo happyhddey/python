@@ -87,63 +87,11 @@ def nanido_easy():
     numbs = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     def show(x, y):
-        if x >= -300 and x <= -100 and y >= 100 and y <= 300:
-            if 1 in numbs:
-                print(1)
-                numbs.remove(1)
-                
-            else:
-                pass
-        elif x >= -100 and x <= 100 and y >= 100 and y <= 300:
-            if 2 in numbs:
-                print(2)
-                numbs.remove(2)
-            else:
-                pass
-        elif x >= 100 and x <= 300 and y >= 100 and y <= 300:
-            if 3 in numbs:
-                print(3)
-                numbs.remove(3)
-            else:
-                pass
-        elif x >= -300 and x <= -100 and y >= -100 and y <= 100:
-            if 4 in numbs:
-                print(4)
-                numbs.remove(4)
-            else:
-                pass
-        elif x >= -100 and x <= 100 and y >= -100 and y <= 100:
-            if 5 in numbs:
-                print(5)
-                numbs.remove(5)
-            else:
-                pass
-        elif x >= 100 and x <= 300 and y >= -100 and y <= 100:
-            if 6 in numbs:
-                print(6)
-                numbs.remove(6)
-            else:
-                pass
-        elif x >= -300 and x <= -100 and y >= -300 and y <= -100:
-            if 7 in numbs:
-                print(7)
-                numbs.remove(7)
-            else:
-                pass
-        elif x >= -100 and x <= 100 and y >= -300 and y <= -100:
-            if 8 in numbs:
-                print(8)
-                numbs.remove(8)
-            else:
-                pass
-        elif x >= 100 and x <= 300 and y >= -300 and y <= -100:
-            if 9 in numbs:
-                print(9)
-                numbs.remove(9)
-            else:
-                pass
-        else:
-            pass
+        column = (x+300) // 200
+        row = (y+300) // 200
+        if 0 <= column < 3 and 0 <= row < 3:
+            print((2-row)*3 + column)
+
         print(x, y)
     onscreenclick(show)
 
