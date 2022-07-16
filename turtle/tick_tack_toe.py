@@ -109,8 +109,26 @@ def draw_x():
 numbs = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
+def is_numbs_full(numbs):
+    for i in range(0, 9):
+        for j in range(1, 10):
+            if numbs[i] == j:
+                return False
+    return True
+
+
+
+
 def nanido_easy_ai():
     global numbs
+    if is_numbs_full(numbs):
+        reset()
+        penup()
+        print("당신은 ai와의 대결에서 비겼습니다.")
+        write("당신은 ai와의 대결에서 비겼습니다.", True, align="center", font=('이서윤체', 40, 'normal'))
+        return
+    else:
+        print("게임을 계속합니다")
     random_ai = random.randint(1, 9)
     while random_ai not in numbs:
         random_ai = random.randint(1, 9)
@@ -337,9 +355,6 @@ def nanido_easy():
                 pass
         else:
             pass
-        if numbs == []:
-            print("비겼습니다.")
-            write("당신은 ai의 대결에서 비겼습니다.", True, align="center", font=('이서윤체', 40, 'normal'))
         print(x, y)
     onscreenclick(show)
 
