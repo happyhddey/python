@@ -50,7 +50,7 @@ def select(x, y):
     if x >= -250 and x <= -100 and y >= -100 and y <= 0:
         nanido_easy()
     if x >= 100 and x <= 250 and y >= -100 and y <= 0:
-        pass
+        nanido_hard()
     else:
         pass
     print(x, y)
@@ -58,6 +58,8 @@ def select(x, y):
 
 start_screen()
 onscreenclick(select)
+
+
 def draw_o():
     penup()
     seth(270)
@@ -164,6 +166,11 @@ def nanido_easy_ai():
         penup()
         write("당신은 패배하였습니다", True, align="center", font=('이서윤체', 40, 'normal'))
         return
+
+
+def nanido_hard_ai():
+    global numbs
+    #if numbs == [1]
 
 
 
@@ -356,6 +363,199 @@ def nanido_easy():
         else:
             pass
         print(x, y)
+    onscreenclick(show)
+    
+    
+def nanido_hard():
+    make()
+
+    def show(x, y):
+        global numbs
+        if x >= -300 and x <= -100 and y >= 100 and y <= 300:
+            if 1 in numbs:
+                print(1)
+                finding = numbs.index(1)
+                numbs[finding] = 'x'
+                if numbs[0:3] == ['x', 'x', 'x'] or numbs[3:6] == ['x', 'x', 'x'] \
+                        or numbs[6:9] == ['x', 'x', 'x'] or [numbs[0], numbs[3], numbs[6]] == ['x', 'x', 'x'] \
+                        or [numbs[1], numbs[4], numbs[7]] == ['x', 'x', 'x'] or [numbs[2], numbs[5], numbs[8]] == ['x','x','x'] \
+                        or [numbs[0], numbs[4], numbs[8]] == ['x', 'x', 'x'] or [numbs[2], numbs[4], numbs[6]] == ['x','x','x']:
+                    reset()
+                    print('당신이 승리하셨습니다')
+                    penup()
+                    write("당신이 승리하셨습니다. 축하합니다!", True, align="center", font=('이서윤체', 40, 'normal'))
+                    return
+                penup()
+                goto(-200, 200)
+                draw_x()
+                nanido_hard_ai()
+
+            else:
+                pass
+        elif x >= -100 and x <= 100 and y >= 100 and y <= 300:
+            if 2 in numbs:
+                print(2)
+                finding = numbs.index(2)
+                numbs[finding] = 'x'
+                if numbs[0:3] == ['x', 'x', 'x'] or numbs[3:6] == ['x', 'x', 'x'] \
+                        or numbs[6:9] == ['x', 'x', 'x'] or [numbs[0], numbs[3], numbs[6]] == ['x', 'x', 'x'] \
+                        or [numbs[1], numbs[4], numbs[7]] == ['x', 'x', 'x'] or [numbs[2], numbs[5], numbs[8]] == ['x','x','x'] \
+                        or [numbs[0], numbs[4], numbs[8]] == ['x', 'x', 'x'] or [numbs[2], numbs[4], numbs[6]] == ['x','x','x']:
+                    reset()
+                    print('당신이 승리하셨습니다')
+                    penup()
+                    write("당신이 승리하셨습니다. 축하합니다!", True, align="center", font=('이서윤체', 40, 'normal'))
+                    return
+                penup()
+                goto(0, 200)
+                draw_x()
+                nanido_hard_ai()
+            else:
+                pass
+        elif x >= 100 and x <= 300 and y >= 100 and y <= 300:
+            if 3 in numbs:
+                print(3)
+                finding = numbs.index(3)
+                numbs[finding] = 'x'
+                if numbs[0:3] == ['x', 'x', 'x'] or numbs[3:6] == ['x', 'x', 'x'] \
+                        or numbs[6:9] == ['x', 'x', 'x'] or [numbs[0], numbs[3], numbs[6]] == ['x', 'x', 'x'] \
+                        or [numbs[1], numbs[4], numbs[7]] == ['x', 'x', 'x'] or [numbs[2], numbs[5], numbs[8]] == ['x','x','x'] \
+                        or [numbs[0], numbs[4], numbs[8]] == ['x', 'x', 'x'] or [numbs[2], numbs[4], numbs[6]] == ['x','x','x']:
+                    reset()
+                    print('당신이 승리하셨습니다')
+                    penup()
+                    write("당신이 승리하셨습니다. 축하합니다!", True, align="center", font=('이서윤체', 40, 'normal'))
+                    return
+                penup()
+                goto(200, 200)
+                draw_x()
+                nanido_hard_ai()
+            else:
+                pass
+        elif x >= -300 and x <= -100 and y >= -100 and y <= 100:
+            if 4 in numbs:
+                print(4)
+                finding = numbs.index(4)
+                numbs[finding] = 'x'
+                if numbs[0:3] == ['x', 'x', 'x'] or numbs[3:6] == ['x', 'x', 'x'] \
+                        or numbs[6:9] == ['x', 'x', 'x'] or [numbs[0], numbs[3], numbs[6]] == ['x', 'x', 'x'] \
+                        or [numbs[1], numbs[4], numbs[7]] == ['x', 'x', 'x'] or [numbs[2], numbs[5], numbs[8]] == ['x','x','x'] \
+                        or [numbs[0], numbs[4], numbs[8]] == ['x', 'x', 'x'] or [numbs[2], numbs[4], numbs[6]] == ['x','x','x']:
+                    reset()
+                    print('당신이 승리하셨습니다')
+                    penup()
+                    write("당신이 승리하셨습니다. 축하합니다!", True, align="center", font=('이서윤체', 40, 'normal'))
+                    return
+                penup()
+                goto(-200, 0)
+                draw_x()
+                nanido_hard_ai()
+            else:
+                pass
+        elif x >= -100 and x <= 100 and y >= -100 and y <= 100:
+            if 5 in numbs:
+                print(5)
+                finding = numbs.index(5)
+                numbs[finding] = 'x'
+                if numbs[0:3] == ['x', 'x', 'x'] or numbs[3:6] == ['x', 'x', 'x'] \
+                        or numbs[6:9] == ['x', 'x', 'x'] or [numbs[0], numbs[3], numbs[6]] == ['x', 'x', 'x'] \
+                        or [numbs[1], numbs[4], numbs[7]] == ['x', 'x', 'x'] or [numbs[2], numbs[5], numbs[8]] == ['x','x','x'] \
+                        or [numbs[0], numbs[4], numbs[8]] == ['x', 'x', 'x'] or [numbs[2], numbs[4], numbs[6]] == ['x','x','x']:
+                    reset()
+                    print('당신이 승리하셨습니다')
+                    penup()
+                    write("당신이 승리하셨습니다. 축하합니다!", True, align="center", font=('이서윤체', 40, 'normal'))
+                    return
+                penup()
+                goto(0, 0)
+                draw_x()
+                nanido_hard_ai()
+            else:
+                pass
+        elif x >= 100 and x <= 300 and y >= -100 and y <= 100:
+            if 6 in numbs:
+                print(6)
+                finding = numbs.index(6)
+                numbs[finding] = 'x'
+                if numbs[0:3] == ['x', 'x', 'x'] or numbs[3:6] == ['x', 'x', 'x'] \
+                        or numbs[6:9] == ['x', 'x', 'x'] or [numbs[0], numbs[3], numbs[6]] == ['x', 'x', 'x'] \
+                        or [numbs[1], numbs[4], numbs[7]] == ['x', 'x', 'x'] or [numbs[2], numbs[5], numbs[8]] == ['x','x','x'] \
+                        or [numbs[0], numbs[4], numbs[8]] == ['x', 'x', 'x'] or [numbs[2], numbs[4], numbs[6]] == ['x','x','x']:
+                    reset()
+                    print('당신이 승리하셨습니다')
+                    penup()
+                    write("당신이 승리하셨습니다. 축하합니다!", True, align="center", font=('이서윤체', 40, 'normal'))
+                    return
+                penup()
+                goto(200, 0)
+                draw_x()
+                nanido_hard_ai()
+            else:
+                pass
+        elif x >= -300 and x <= -100 and y >= -300 and y <= -100:
+            if 7 in numbs:
+                print(7)
+                finding = numbs.index(7)
+                numbs[finding] = 'x'
+                if numbs[0:3] == ['x', 'x', 'x'] or numbs[3:6] == ['x', 'x', 'x'] \
+                        or numbs[6:9] == ['x', 'x', 'x'] or [numbs[0], numbs[3], numbs[6]] == ['x', 'x', 'x'] \
+                        or [numbs[1], numbs[4], numbs[7]] == ['x', 'x', 'x'] or [numbs[2], numbs[5], numbs[8]] == ['x','x','x'] \
+                        or [numbs[0], numbs[4], numbs[8]] == ['x', 'x', 'x'] or [numbs[2], numbs[4], numbs[6]] == ['x','x','x']:
+                    reset()
+                    print('당신이 승리하셨습니다')
+                    penup()
+                    write("당신이 승리하셨습니다. 축하합니다!", True, align="center", font=('이서윤체', 40, 'normal'))
+                    return
+                penup()
+                goto(-200, -200)
+                draw_x()
+                nanido_hard_ai()
+            else:
+                pass
+        elif x >= -100 and x <= 100 and y >= -300 and y <= -100:
+            if 8 in numbs:
+                print(8)
+                finding = numbs.index(8)
+                numbs[finding] = 'x'
+                if numbs[0:3] == ['x', 'x', 'x'] or numbs[3:6] == ['x', 'x', 'x'] \
+                        or numbs[6:9] == ['x', 'x', 'x'] or [numbs[0], numbs[3], numbs[6]] == ['x', 'x', 'x'] \
+                        or [numbs[1], numbs[4], numbs[7]] == ['x', 'x', 'x'] or [numbs[2], numbs[5], numbs[8]] == ['x','x','x'] \
+                        or [numbs[0], numbs[4], numbs[8]] == ['x', 'x', 'x'] or [numbs[2], numbs[4], numbs[6]] == ['x','x','x']:
+                    reset()
+                    print('당신이 승리하셨습니다')
+                    penup()
+                    write("당신이 승리하셨습니다. 축하합니다!", True, align="center", font=('이서윤체', 40, 'normal'))
+                    return
+                penup()
+                goto(0, -200)
+                draw_x()
+                nanido_hard_ai()
+            else:
+                pass
+        elif x >= 100 and x <= 300 and y >= -300 and y <= -100:
+            if 9 in numbs:
+                print(9)
+                finding = numbs.index(9)
+                numbs[finding] = 'x'
+                if numbs[0:3] == ['x', 'x', 'x'] or numbs[3:6] == ['x', 'x', 'x'] \
+                        or numbs[6:9] == ['x', 'x', 'x'] or [numbs[0], numbs[3], numbs[6]] == ['x', 'x', 'x'] \
+                        or [numbs[1], numbs[4], numbs[7]] == ['x', 'x', 'x'] or [numbs[2], numbs[5], numbs[8]] == ['x','x','x'] \
+                        or [numbs[0], numbs[4], numbs[8]] == ['x', 'x', 'x'] or [numbs[2], numbs[4], numbs[6]] == ['x','x','x']:
+                    reset()
+                    print('당신이 승리하셨습니다')
+                    penup()
+                    write("당신이 승리하셨습니다. 축하합니다!", True, align="center", font=('이서윤체', 40, 'normal'))
+                    return
+                penup()
+                goto(200, -200)
+                draw_x()
+                nanido_hard_ai()
+            else:
+                pass
+        else:
+            pass
+        print(x, y)
+
     onscreenclick(show)
 
 
