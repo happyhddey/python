@@ -419,22 +419,31 @@ def nanido_hard_ai():
             numbs[2] = "o"
         else:
             if random_ai == 1:
+                penup()
                 goto(-200, 200)
             elif random_ai == 2:
+                penup()
                 goto(0, 200)
             elif random_ai == 3:
+                penup()
                 goto(200, 200)
             elif random_ai == 4:
+                penup()
                 goto(-200, 0)
             elif random_ai == 5:
+                penup()
                 goto(0, 0)
             elif random_ai == 6:
+                penup()
                 goto(200, 0)
             elif random_ai == 7:
+                penup()
                 goto(-200, -200)
             elif random_ai == 8:
+                penup()
                 goto(0, -200)
             else:
+                penup()
                 goto(200, -200)
             draw_o()
         if is_numbs_full(numbs):
